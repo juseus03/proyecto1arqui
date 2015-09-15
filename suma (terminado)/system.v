@@ -99,7 +99,7 @@ alu #(.DATAWIDTH(8), .SELECTION(3)) alu_unit0
 .sDataInBusA(nBusA), .sDataInBusB(nBusB),
 .sSelAlu(cSelAlu),
 .sDataOutBusC(nBusC),
-.sOverflow(cOverflow), .sCarry(cCarry), .sNegative(cNegative), .sZero(cZero)
+.sOverflow(cOverflow), .sCarry(cCarry), .sNegative(cNegative), .sZero(cZero), .sPar(cPar)
 );
 
 statemachine #(.SELECTIONALU(3), .SELECTIONDECO(3)) statemachine_unit0

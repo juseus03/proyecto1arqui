@@ -80,15 +80,17 @@ decoder #(.SELECTION(3), .DATAWIDTH(8)) decoder_unitC
 
 multiplexor #(.SELECTION(3), .DATAWIDTH(8)) multiplexor_unitBusA
 (
-.sDataInMux0(nDataOutReg0), .sDataInMux1(nDataOutReg1), .sDataInMux2(nDataOutReg2), .sDataInMux3(nDataOutReg3), .sDataInMux4(nDataOutReg4), .sDataInMux5(nDataOutReg5), .sDataInMux6(nDataOutReg6), .sDataInMux7(nDataOutReg7),
+.sDataInMux0(nDataOutReg0), .sDataInMux1(0), .sDataInMux2(0), .sDataInMux3(0), .sDataInMux4(0), .sDataInMux5(0), .sDataInMux6(nDataOutReg6), .sDataInMux7(nDataOutReg7),
 .sSelMux(cSelDecoA),
+
 .sDataOutMux(nBusA)
 );
 
 multiplexor #(.SELECTION(3), .DATAWIDTH(8)) multiplexor_unitBusB
 (
-.sDataInMux0(nDataOutReg0), .sDataInMux1(nDataOutReg1), .sDataInMux2(nDataOutReg2), .sDataInMux3(nDataOutReg3), .sDataInMux4(nDataOutReg4), .sDataInMux5(nDataOutReg5), .sDataInMux6(nDataOutReg6), .sDataInMux7(nDataOutReg7),
+.sDataInMux0(nDataOutReg0), .sDataInMux1(0), .sDataInMux2(0), .sDataInMux3(0), .sDataInMux4(0), .sDataInMux5(0), .sDataInMux6(nDataOutReg6), .sDataInMux7(nDataOutReg7),
 .sSelMux(cSelDecoB),
+
 .sDataOutMux(nBusB)
 );
 

@@ -31,7 +31,7 @@ module alu #(
 (	input[DATAWIDTH-1:0] sDataInBusA,sDataInBusB,
 	input[SELECTION-1:0] sSelAlu,
 	output reg [DATAWIDTH-1:0] sDataOutBusC,
-	output reg sOverflow,sCarry,sNegative,sZero
+	output reg sOverflow,sCarry,sNegative,sZero,sPar
 );
 //reg [DATAWIDTH-1:0] sDataOutBusCtemp;
 //reg sZero, sNegative, sCarry, sOverflow;
@@ -43,11 +43,11 @@ module alu #(
 		3'b000: sDataOutBusC = sDataInBusA; //DEJA PASAR
 		3'b001: sDataOutBusC = sDataInBusA - sDataInBusB;
 		3'b010: sDataOutBusC = sDataInBusA + sDataInBusB;
-		3'b011: sDataOutBusC = !sDataInBusA;
-		3'b100: sDataOutBusC = sDataInBusA & sDataInBusB;
-		3'b101: sDataOutBusC = sDataInBusA + 1;
-		3'b110: sDataOutBusC = sDataInBusA - 1;
-		3'b111: sDataOutBusC = sDataInBusA;
+		3'b011: sDataOutBusC = sDataInBusA>>1;
+		3'b100: sDataOutBusC = sDataInBusA<<1;
+		3'b101: sDataOutBusC = sDataInBusA; //DEJA PASAR;
+		3'b110: sDataOutBusC = sDataInBusA; //DEJA PASAR;
+		3'b111: sDataOutBusC = sDataInBusA; //DEJA PASAR;
 		default : sDataOutBusC = sDataInBusA; // channel 0 is selected
 	endcase
 	end
@@ -70,6 +70,10 @@ assign dummyV=sDataOutBusC;
 	else	
 		sNegative = 0;
 
+	if (sDataOutBusC[0]==0)
+		sPar=1;
+	else
+		sPar=0;
 
 
 

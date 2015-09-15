@@ -31,7 +31,7 @@ module alu #(
 (	input[DATAWIDTH-1:0] sDataInBusA,sDataInBusB,
 	input[SELECTION-1:0] sSelAlu,
 	output reg [DATAWIDTH-1:0] sDataOutBusC,
-	output reg sOverflow,sCarry,sNegative,sZero,sLimite
+	output reg sOverflow,sCarry,sNegative,sZero
 );
 //reg [DATAWIDTH-1:0] sDataOutBusCtemp;
 //reg sZero, sNegative, sCarry, sOverflow;
