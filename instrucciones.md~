@@ -14,7 +14,7 @@ git mv ----Mueve/cambia de nombre archivos
 git status ---status de los archivos
 git add . ----Agrega todos los archivos
 git add NOMBRE ARCHIVO --- agrega este archivo
-git commit -m "descripcion de los cambios"----prepara los archivos para subirlos 
+git commit -m "descripcion de los cambios"----prepara los archivos para subirlos
 git push origin master ---- actualiza el gitHUb en internet
 
 https://www.youtube.com/watch?v=ruieT3Nkg2M
