@@ -10,10 +10,8 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,
 
 //Declaracion de estados
 	parameter sStateReset= 			3'b000;
-	parameter sStateLeerRegProg0=		3'b001;
-	parameter sStateLeerRegProg1=		3'b010;
-	parameter sStateSumar=			3'b011;
-	parameter sStateEscribirR0_inic=	3'b100;
+	parameter sStateLeer=		3'b001;
+	parameter sStateSumar=			3'b010;
 	parameter sStateDone=			3'b111;
 	
 	reg done;
@@ -29,11 +27,9 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,
 // next state logic
 	always @ (*)
 	case (rState)
-	sStateReset: sState= sStateLeerRegProg0;
-	sStateLeerRegProg0:		sState= sStateLeerRegProg1;
-	sStateLeerRegProg1:		sState= sStateSumar; 
-	sStateSumar:			sState=sStateEscribirR0_inic;	 
-	sStateEscribirR0_inic:  	sState= sStateDone;
+	sStateReset: sState= sStateLeer;
+	sStateLeer:		sState= sStateSumar; 
+	sStateSumar:			sState=sStateDone;	 
 	sStateDone:			sState=sStateDone;
 
 	default: sState = sStateReset;
@@ -46,9 +42,8 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,
 	
 
 	sStateReset:  	begin sSelDecoA = 3'b000; sSelDecoB = 3'b000; sSelDecoC = 3'b111; sSelAlu = 3'b000; end //reset
-	//Inicializacion
-	sStateLeerRegProg0:	begin sSelDecoA = 3'b110; sSelDecoB = 3'b000; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP0
-	sStateLeerRegProg1:	begin sSelDecoA = 3'b110; sSelDecoB = 3'b111; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP1
+//RD RP0
+	sStateLeer:	begin sSelDecoA = 3'b110; sSelDecoB = 3'b111; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP1
 	sStateSumar:	 	begin sSelDecoA = 3'b110; sSelDecoB = 3'b111; sSelDecoC = 3'b000; sSelAlu = 3'b010; end// RP0+RP1
 	sStateDone:	 	begin sSelDecoA = 3'b000; sSelDecoB = 3'b111; sSelDecoC = 3'b000; sSelAlu = 3'b000; end// Done
 	endcase
