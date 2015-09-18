@@ -37,7 +37,7 @@ module	dataregister #(
 	reg [DATAWIDTH-1:0] sDataOut;
 	
 	//REGISTER
-	always @(posedge clk, posedge lowRst)
+	always @(posedge clk, negedge lowRst)
 		if (lowRst == 0) begin
 			rDataReg <= 0;
 		end else begin

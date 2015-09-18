@@ -33,7 +33,7 @@ module	dataregister #(
 	);
 	//SIGNAL DECLARATION
 	reg [DATAWIDTH-1:0] rDataReg;
-	wire [DATAWIDTH-1:0] sDataReg;
+	reg [DATAWIDTH-1:0] sDataReg;
 	reg [DATAWIDTH-1:0] sDataOut;
 	
 	//REGISTER

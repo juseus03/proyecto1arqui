@@ -1,8 +1,0 @@
-../system.v
-../rtl/alu/alu.v
-../rtl/dataregister/dataregister.v
-../rtl/decoder/decoder.v
-../rtl/fixedregister/fixedregister.v
-../rtl/multiplexor/multiplexor.v
-../rtl/statemachine/statemachine.v
-system_tb.v

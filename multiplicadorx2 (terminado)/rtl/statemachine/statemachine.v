@@ -19,7 +19,7 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,sPar,sStart,
 //signal declaration
 	reg [2:0] sState, rState;
 // state register
-	always @ (posedge clk, posedge lowRst)
+	always @ (posedge clk, negedge lowRst)
 	if (lowRst==0)
 		rState <= sWaitStart;
 	else

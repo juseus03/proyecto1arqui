@@ -52,8 +52,8 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,
 	sStateEscribirR3_up:		sState=sStateLeerRegProg1; 
 	sStateLeerRegProg1:		sState=sStateEscribirR4_up; 
 	sStateEscribirR4_up:		if(!sZero)sState=sStateEscribirR0_up; else sState=sStateEscribirR4_dw;//DOwn
-	sStateEscribirR4_dw:		if(!sZero)sState=sStateEscribirR0_dw; else sState=sStateDone;
-	sStateEscribirR0_dw:		sState=sStateEscribirR2_dw; 
+	sStateEscribirR4_dw:		sState=sStateEscribirR0_dw;
+	sStateEscribirR0_dw:		if(!sZero)sState=sStateEscribirR2_dw;  else sState=sStateDone;
 	sStateEscribirR2_dw:		sState=sStateEscribirR1_dw;
 	sStateEscribirR1_dw:		sState=sStateEscribirR4_dw;
 	sStateDone:			sState=sStateDone;

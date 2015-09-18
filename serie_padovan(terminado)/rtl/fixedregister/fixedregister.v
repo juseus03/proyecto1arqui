@@ -37,7 +37,7 @@ module	fixedregister #(
 	reg [DATAWIDTH-1:0] sDataReg0;
 	
 	//REGISTER
-	always @(posedge clk, posedge lowRst)
+	always @(posedge clk, negedge lowRst)
 		if (lowRst == 0) begin
 			rDataReg0 <= 0;
 			//rDataReg0 <= INITREG;

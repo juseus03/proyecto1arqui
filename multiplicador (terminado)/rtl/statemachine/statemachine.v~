@@ -41,7 +41,7 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,sPar,sStart,
 	 sStateEscribirR2:	sState=sStateLeerRp1;
 	 sStateLeerRp1:		sState=sStateEscribirR1;
 	 sStateEscribirR1:	sState=sStateLeerR1;	
-	 sStateLeerR1:		if (sZero==0) begin if(sPar==0)
+	 sStateLeerR1:		if (sZero==0) begin if(sPar==1)
 				sState=sStateShiftR1;
 				else
 				sState=sStateLeerR0R2;end

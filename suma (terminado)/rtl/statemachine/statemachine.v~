@@ -47,9 +47,9 @@ input wire clk, lowRst,sOverflow,sCarry,sNegative,sZero,
 
 	sStateReset:  	begin sSelDecoA = 3'b000; sSelDecoB = 3'b000; sSelDecoC = 3'b111; sSelAlu = 3'b000; end //reset
 	//Inicializacion
-	sStateLeerRegProg0:	begin sSelDecoA = 3'b101; sSelDecoB = 3'b111; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP0
-	sStateLeerRegProg1:	begin sSelDecoA = 3'b101; sSelDecoB = 3'b110; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP1
-	sStateSumar:	 	begin sSelDecoA = 3'b101; sSelDecoB = 3'b110; sSelDecoC = 3'b000; sSelAlu = 3'b010; end// RP0+RP1
-	sStateDone:	 	begin sSelDecoA = 3'b111; sSelDecoB = 3'b111; sSelDecoC = 3'b000; sSelAlu = 3'b010; end// Done
+	sStateLeerRegProg0:	begin sSelDecoA = 3'b110; sSelDecoB = 3'b000; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP0
+	sStateLeerRegProg1:	begin sSelDecoA = 3'b110; sSelDecoB = 3'b111; sSelDecoC = 3'b111; sSelAlu = 3'b000; end//RD RP1
+	sStateSumar:	 	begin sSelDecoA = 3'b110; sSelDecoB = 3'b111; sSelDecoC = 3'b000; sSelAlu = 3'b010; end// RP0+RP1
+	sStateDone:	 	begin sSelDecoA = 3'b000; sSelDecoB = 3'b111; sSelDecoC = 3'b000; sSelAlu = 3'b000; end// Done
 	endcase
 endmodule
