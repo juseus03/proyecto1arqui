@@ -1,0 +1,803 @@
+Release 12.4 - xst M.81d (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "system.prj"
+Input Format                       : MIXED
+
+---- Target Parameters
+Output File Name                   : "system.ngc"
+Target Device                      : xc3S100e-VQ100-4
+
+---- Source Options
+Top Module Name                    : system
+Automatic Register Balancing       : yes
+
+---- General Options
+Optimization Goal                  : AREA
+Optimization Effort                : 2
+RTL Output                         : yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../system.v" in library work
+Compiling verilog file "../rtl/alu/alu.v" in library work
+Module <system> compiled
+Compiling verilog file "../rtl/dataregister/dataregister.v" in library work
+Module <alu> compiled
+Compiling verilog file "../rtl/decoder/decoder.v" in library work
+Module <dataregister> compiled
+Compiling verilog file "../rtl/fixedregister/fixedregister.v" in library work
+Module <decoder> compiled
+Compiling verilog file "../rtl/multiplexor/multiplexor.v" in library work
+Module <fixedregister> compiled
+Compiling verilog file "../rtl/statemachine/statemachine.v" in library work
+Module <multiplexor> compiled
+Module <statemachine> compiled
+No errors in compilation
+Analysis of file <"system.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <system> in library <work> with parameters.
+	clk_freq = "00000010111110101111000010000000"
+
+Analyzing hierarchy for module <fixedregister> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	INITREG = "00000000000000000000000000000100"
+
+Analyzing hierarchy for module <fixedregister> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	INITREG = "00000000000000000000000000000101"
+
+Analyzing hierarchy for module <fixedregister> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	INITREG = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <fixedregister> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	INITREG = "00000000000000000000000000000011"
+
+Analyzing hierarchy for module <fixedregister> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	INITREG = "00000000000000000000000000000001"
+
+Analyzing hierarchy for module <dataregister> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <decoder> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001100"
+	SELECTION = "00000000000000000000000000000100"
+
+Analyzing hierarchy for module <multiplexor> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	SELECTION = "00000000000000000000000000000100"
+
+Analyzing hierarchy for module <alu> in library <work> with parameters.
+	DATAWIDTH = "00000000000000000000000000001000"
+	SELECTION = "00000000000000000000000000000011"
+
+Analyzing hierarchy for module <statemachine> in library <work> with parameters.
+	SELECTIONALU = "00000000000000000000000000000011"
+	SELECTIONDECO = "00000000000000000000000000000100"
+	sStateDone = "111001"
+	sStateEscribirR0 = "000110"
+	sStateEscribirR0_0 = "000111"
+	sStateEscribirR0_1 = "001000"
+	sStateEscribirR0_2 = "001001"
+	sStateEscribirR0_3 = "001010"
+	sStateEscribirR1 = "001011"
+	sStateEscribirR1_0 = "001100"
+	sStateEscribirR1_1 = "001101"
+	sStateEscribirR1_2 = "001110"
+	sStateEscribirR1_3 = "001111"
+	sStateEscribirR1_4 = "010000"
+	sStateEscribirR1_5 = "010001"
+	sStateEscribirR1_6 = "010010"
+	sStateEscribirR2 = "010011"
+	sStateEscribirR2_0 = "010100"
+	sStateEscribirR2_1 = "010101"
+	sStateEscribirR2_2 = "010110"
+	sStateEscribirR2_3 = "010111"
+	sStateEscribirR2_4 = "011000"
+	sStateEscribirR2_5 = "011001"
+	sStateEscribirR2_6 = "011010"
+	sStateEscribirR2_7 = "011011"
+	sStateEscribirR3 = "011100"
+	sStateEscribirR3_0 = "011101"
+	sStateEscribirR3_1 = "011110"
+	sStateEscribirR3_2 = "011111"
+	sStateEscribirR3_3 = "100000"
+	sStateEscribirR3_4 = "100001"
+	sStateEscribirR3_5 = "100010"
+	sStateEscribirR3_6 = "100011"
+	sStateEscribirR4 = "100100"
+	sStateEscribirR4_0 = "100101"
+	sStateEscribirR4_1 = "100110"
+	sStateEscribirR4_2 = "100111"
+	sStateEscribirR4_3 = "101000"
+	sStateLeerR0 = "101001"
+	sStateLeerR1 = "101010"
+	sStateLeerR2 = "101011"
+	sStateLeerR3 = "101100"
+	sStateLeerRP0 = "000001"
+	sStateLeerRP1 = "000010"
+	sStateLeerRP2 = "000011"
+	sStateLeerRP3 = "000100"
+	sStateLeerRP3_0 = "110111"
+	sStateLeerRP4 = "000101"
+	sStateLeerRP4_0 = "111000"
+	sStateRestarR0RP2 = "101110"
+	sStateRestarR0RP3 = "101111"
+	sStateRestarR0RP4 = "110000"
+	sStateRestarR1RP2 = "110001"
+	sStateRestarR1RP3 = "110010"
+	sStateRestarR1RP4 = "110011"
+	sStateRestarR2RP3 = "110100"
+	sStateRestarR2RP4 = "110101"
+	sStateRestarR3RP4 = "110110"
+	sStateRestarRP0RP1 = "101101"
+	sWaitStart = "000000"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <system>.
+	clk_freq = 32'sb00000010111110101111000010000000
+Module <system> is correct for synthesis.
+ 
+Analyzing module <fixedregister.1> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	INITREG = 32'sb00000000000000000000000000000100
+Module <fixedregister.1> is correct for synthesis.
+ 
+Analyzing module <fixedregister.2> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	INITREG = 32'sb00000000000000000000000000000101
+Module <fixedregister.2> is correct for synthesis.
+ 
+Analyzing module <fixedregister.3> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	INITREG = 32'sb00000000000000000000000000001000
+Module <fixedregister.3> is correct for synthesis.
+ 
+Analyzing module <fixedregister.4> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	INITREG = 32'sb00000000000000000000000000000011
+Module <fixedregister.4> is correct for synthesis.
+ 
+Analyzing module <fixedregister.5> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	INITREG = 32'sb00000000000000000000000000000001
+Module <fixedregister.5> is correct for synthesis.
+ 
+Analyzing module <dataregister> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+Module <dataregister> is correct for synthesis.
+ 
+Analyzing module <decoder> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001100
+	SELECTION = 32'sb00000000000000000000000000000100
+WARNING:Xst:883 - "../rtl/decoder/decoder.v" line 46: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/decoder/decoder.v" line 47: Ignored duplicate item in case statement. 
+Module <decoder> is correct for synthesis.
+ 
+Analyzing module <multiplexor> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	SELECTION = 32'sb00000000000000000000000000000100
+Module <multiplexor> is correct for synthesis.
+ 
+Analyzing module <alu> in library <work>.
+	DATAWIDTH = 32'sb00000000000000000000000000001000
+	SELECTION = 32'sb00000000000000000000000000000011
+Module <alu> is correct for synthesis.
+ 
+Analyzing module <statemachine> in library <work>.
+	SELECTIONALU = 32'sb00000000000000000000000000000011
+	SELECTIONDECO = 32'sb00000000000000000000000000000100
+	sStateDone = 6'b111001
+	sStateEscribirR0 = 6'b000110
+	sStateEscribirR0_0 = 6'b000111
+	sStateEscribirR0_1 = 6'b001000
+	sStateEscribirR0_2 = 6'b001001
+	sStateEscribirR0_3 = 6'b001010
+	sStateEscribirR1 = 6'b001011
+	sStateEscribirR1_0 = 6'b001100
+	sStateEscribirR1_1 = 6'b001101
+	sStateEscribirR1_2 = 6'b001110
+	sStateEscribirR1_3 = 6'b001111
+	sStateEscribirR1_4 = 6'b010000
+	sStateEscribirR1_5 = 6'b010001
+	sStateEscribirR1_6 = 6'b010010
+	sStateEscribirR2 = 6'b010011
+	sStateEscribirR2_0 = 6'b010100
+	sStateEscribirR2_1 = 6'b010101
+	sStateEscribirR2_2 = 6'b010110
+	sStateEscribirR2_3 = 6'b010111
+	sStateEscribirR2_4 = 6'b011000
+	sStateEscribirR2_5 = 6'b011001
+	sStateEscribirR2_6 = 6'b011010
+	sStateEscribirR2_7 = 6'b011011
+	sStateEscribirR3 = 6'b011100
+	sStateEscribirR3_0 = 6'b011101
+	sStateEscribirR3_1 = 6'b011110
+	sStateEscribirR3_2 = 6'b011111
+	sStateEscribirR3_3 = 6'b100000
+	sStateEscribirR3_4 = 6'b100001
+	sStateEscribirR3_5 = 6'b100010
+	sStateEscribirR3_6 = 6'b100011
+	sStateEscribirR4 = 6'b100100
+	sStateEscribirR4_0 = 6'b100101
+	sStateEscribirR4_1 = 6'b100110
+	sStateEscribirR4_2 = 6'b100111
+	sStateEscribirR4_3 = 6'b101000
+	sStateLeerR0 = 6'b101001
+	sStateLeerR1 = 6'b101010
+	sStateLeerR2 = 6'b101011
+	sStateLeerR3 = 6'b101100
+	sStateLeerRP0 = 6'b000001
+	sStateLeerRP1 = 6'b000010
+	sStateLeerRP2 = 6'b000011
+	sStateLeerRP3 = 6'b000100
+	sStateLeerRP3_0 = 6'b110111
+	sStateLeerRP4 = 6'b000101
+	sStateLeerRP4_0 = 6'b111000
+	sStateRestarR0RP2 = 6'b101110
+	sStateRestarR0RP3 = 6'b101111
+	sStateRestarR0RP4 = 6'b110000
+	sStateRestarR1RP2 = 6'b110001
+	sStateRestarR1RP3 = 6'b110010
+	sStateRestarR1RP4 = 6'b110011
+	sStateRestarR2RP3 = 6'b110100
+	sStateRestarR2RP4 = 6'b110101
+	sStateRestarR3RP4 = 6'b110110
+	sStateRestarRP0RP1 = 6'b101101
+	sWaitStart = 6'b000000
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 90: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 92: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 93: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 102: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 104: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 106: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 111: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 113: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 116: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 118: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 120: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 122: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 125: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 127: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 134: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 136: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 138: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 141: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 143: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 145: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 147: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 149: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 152: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 154: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 156: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 159: Ignored duplicate item in case statement. 
+WARNING:Xst:883 - "../rtl/statemachine/statemachine.v" line 161: Ignored duplicate item in case statement. 
+Module <statemachine> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <rDataReg0> in unit <fixedregister_1> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <DataOutReg> in unit <fixedregister_1> has a constant value of 00000100 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <rDataReg0> in unit <fixedregister_2> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <DataOutReg> in unit <fixedregister_2> has a constant value of 00000101 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <rDataReg0> in unit <fixedregister_3> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <DataOutReg> in unit <fixedregister_3> has a constant value of 00001000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <rDataReg0> in unit <fixedregister_4> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <DataOutReg> in unit <fixedregister_4> has a constant value of 00000011 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <rDataReg0> in unit <fixedregister_5> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <DataOutReg> in unit <fixedregister_5> has a constant value of 00000001 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <fixedregister_1>.
+    Related source file is "../rtl/fixedregister/fixedregister.v".
+WARNING:Xst:1780 - Signal <sDataReg0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rDataReg0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <fixedregister_1> synthesized.
+
+
+Synthesizing Unit <fixedregister_2>.
+    Related source file is "../rtl/fixedregister/fixedregister.v".
+WARNING:Xst:1780 - Signal <sDataReg0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rDataReg0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <fixedregister_2> synthesized.
+
+
+Synthesizing Unit <fixedregister_3>.
+    Related source file is "../rtl/fixedregister/fixedregister.v".
+WARNING:Xst:1780 - Signal <sDataReg0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rDataReg0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <fixedregister_3> synthesized.
+
+
+Synthesizing Unit <fixedregister_4>.
+    Related source file is "../rtl/fixedregister/fixedregister.v".
+WARNING:Xst:1780 - Signal <sDataReg0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rDataReg0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <fixedregister_4> synthesized.
+
+
+Synthesizing Unit <fixedregister_5>.
+    Related source file is "../rtl/fixedregister/fixedregister.v".
+WARNING:Xst:1780 - Signal <sDataReg0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rDataReg0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <fixedregister_5> synthesized.
+
+
+Synthesizing Unit <dataregister>.
+    Related source file is "../rtl/dataregister/dataregister.v".
+    Found 8-bit register for signal <rDataReg>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <dataregister> synthesized.
+
+
+Synthesizing Unit <decoder>.
+    Related source file is "../rtl/decoder/decoder.v".
+    Found 16x12-bit ROM for signal <sOutDeco>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <decoder> synthesized.
+
+
+Synthesizing Unit <multiplexor>.
+    Related source file is "../rtl/multiplexor/multiplexor.v".
+Unit <multiplexor> synthesized.
+
+
+Synthesizing Unit <alu>.
+    Related source file is "../rtl/alu/alu.v".
+WARNING:Xst:646 - Signal <dummyV<7:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit 8-to-1 multiplexer for signal <sDataOutBusC>.
+    Found 8-bit addsub for signal <sDataOutBusC$addsub0000>.
+    Found 1-bit xor2 for signal <sOverflow$xor0000> created at line 81.
+    Found 1-bit xor2 for signal <sOverflow$xor0001> created at line 83.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   8 Multiplexer(s).
+Unit <alu> synthesized.
+
+
+Synthesizing Unit <statemachine>.
+    Related source file is "../rtl/statemachine/statemachine.v".
+WARNING:Xst:647 - Input <sCarry> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sPar> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sOverflow> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sZero> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <done> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+INFO:Xst:1799 - State 000111 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010100 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 001110 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010101 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010110 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 000100 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 001111 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 001001 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 011101 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010111 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010000 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 011110 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 011000 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100000 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 011001 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 000101 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010001 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 001010 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100101 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100001 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 011010 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 010010 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100110 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100010 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 011011 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100111 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 100011 is never reached in FSM <rState>.
+INFO:Xst:1799 - State 001100 is never reached in FSM <rState>.
+    Found finite state machine <FSM_0> for signal <rState>.
+    -----------------------------------------------------------------------
+    | States             | 30                                             |
+    | Transitions        | 41                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 30                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | lowRst                    (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 000000                                         |
+    | Encoding           | automatic                                      |
+    | Implementation     | automatic                                      |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 3-bit latch for signal <sSelAlu>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 4-bit latch for signal <sSelDecoC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 4-bit latch for signal <sSelDecoB>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 4-bit latch for signal <sSelDecoA>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <statemachine> synthesized.
+
+
+Synthesizing Unit <system>.
+    Related source file is "../system.v".
+WARNING:Xst:646 - Signal <nOutDecoC<11:5>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <nOutDecoB> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <nOutDecoA> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <cSelMuxBusB> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <cSelMuxBusA> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <system> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x12-bit ROM                                         : 1
+# Adders/Subtractors                                   : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 5
+ 8-bit register                                        : 5
+# Latches                                              : 4
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 3
+# Multiplexers                                         : 1
+ 8-bit 8-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <statemachine_unit0/rState/FSM> on signal <rState[1:30]> with one-hot encoding.
+------------------------------------------
+ State  | Encoding
+------------------------------------------
+ 000000 | 000000000000000000000000000001
+ 000001 | 000000000000000000000000001000
+ 000010 | 000000000000000000000000000100
+ 000011 | 000000000000000001000000000000
+ 000100 | unreached
+ 000101 | unreached
+ 000110 | 000000000000000000000000010000
+ 000111 | unreached
+ 001000 | 000000000000000010000000000000
+ 001001 | unreached
+ 001010 | unreached
+ 001011 | 000000000000000000000000100000
+ 001100 | unreached
+ 001101 | 000000000000000000100000000000
+ 001110 | unreached
+ 001111 | unreached
+ 010000 | unreached
+ 010001 | unreached
+ 010010 | unreached
+ 010011 | 000000000000000000001000000000
+ 010100 | unreached
+ 010101 | unreached
+ 010110 | unreached
+ 010111 | unreached
+ 011000 | unreached
+ 011001 | unreached
+ 011010 | unreached
+ 011011 | unreached
+ 011100 | 000000000000100000000000000000
+ 011101 | unreached
+ 011110 | unreached
+ 011111 | 000000001000000000000000000000
+ 100000 | unreached
+ 100001 | unreached
+ 100010 | unreached
+ 100011 | unreached
+ 100100 | 000001000000000000000000000000
+ 100101 | unreached
+ 100110 | unreached
+ 100111 | unreached
+ 101000 | 100000000000000000000000000000
+ 101001 | 000000000000000000010000000000
+ 101010 | 000000000000000000000010000000
+ 101011 | 000000000000001000000000000000
+ 101100 | 000000010000000000000000000000
+ 101101 | 000000000000000000000000000010
+ 101110 | 000000000000000000000001000000
+ 101111 | 000000000000000100000000000000
+ 110000 | 000000000010000000000000000000
+ 110001 | 000000000000000000000100000000
+ 110010 | 000000000000010000000000000000
+ 110011 | 000000100000000000000000000000
+ 110100 | 000000000001000000000000000000
+ 110101 | 000010000000000000000000000000
+ 110110 | 001000000000000000000000000000
+ 110111 | 000000000100000000000000000000
+ 111000 | 010000000000000000000000000000
+ 111001 | 000100000000000000000000000000
+------------------------------------------
+WARNING:Xst:1290 - Hierarchical block <fixedreg_unit_0> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <fixedreg_unit_1> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <fixedreg_unit_2> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <fixedreg_unit_3> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <fixedreg_unit_4> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <datareg_unit_0> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <datareg_unit_1> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <datareg_unit_2> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <datareg_unit_3> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <datareg_unit_4> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <decoder_unitC> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <multiplexor_unitBusA> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <multiplexor_unitBusB> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <alu_unit0> is unconnected in block <system>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <statemachine_unit0> is unconnected in block <system>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 1
+ 16x12-bit ROM                                         : 1
+# Adders/Subtractors                                   : 1
+ 8-bit addsub                                          : 1
+# Registers                                            : 40
+ Flip-Flops                                            : 40
+# Latches                                              : 4
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 3
+# Multiplexers                                         : 1
+ 8-bit 8-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <sSelDecoA_3> in Unit <statemachine> is equivalent to the following FF/Latch, which will be removed : <sSelAlu_1> 
+WARNING:Xst:1710 - FF/Latch <sSelDecoA_3> (without init value) has a constant value of 0 in block <statemachine>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <system> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <statemachine> ...
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_7> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_6> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_5> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_4> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_4/rDataReg_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_7> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_6> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_5> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_4> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_3/rDataReg_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_7> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_6> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_5> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_4> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_2/rDataReg_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_7> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_6> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_5> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_4> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_1/rDataReg_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_7> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_6> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_5> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_4> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <datareg_unit_0/rDataReg_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd19> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd24> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd20> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd16> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd11> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd26> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd25> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd21> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd17> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd13> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd9> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd6> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd29> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd28> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd30> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd27> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd23> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd22> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd18> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd14> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd15> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd12> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd10> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd8> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd7> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd5> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd4> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/rState_FSM_FFd2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelAlu_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelAlu_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoC_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoC_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoC_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoC_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoB_3> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoB_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoB_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoB_0> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoA_2> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoA_1> of sequential type is unconnected in block <system>.
+WARNING:Xst:2677 - Node <statemachine_unit0/sSelDecoA_0> of sequential type is unconnected in block <system>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : system.ngr
+Top Level Output File Name         : system.ngc
+Output Format                      : ngc
+Optimization Goal                  : AREA
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 3
+
+Cell Usage :
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100evq100-4 
+
+ Number of Slices:                        0  out of    960     0%  
+ Number of IOs:                           3
+ Number of bonded IOBs:                   0  out of     66     0%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.01 secs
+ 
+--> 
+
+
+Total memory usage is 142984 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  155 (   0 filtered)
+Number of infos    :   43 (   0 filtered)
+

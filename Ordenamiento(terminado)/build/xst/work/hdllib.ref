@@ -1,0 +1,7 @@
+MO statemachine NULL ../rtl/statemachine/statemachine.v vlg46/statemachine.bin 1442586853
+MO dataregister NULL ../rtl/dataregister/dataregister.v vlg5B/dataregister.bin 1442586853
+MO multiplexor NULL ../rtl/multiplexor/multiplexor.v vlg31/multiplexor.bin 1442586853
+MO system NULL ../system.v vlg19/system.bin 1442586853
+MO fixedregister NULL ../rtl/fixedregister/fixedregister.v vlg09/fixedregister.bin 1442586853
+MO decoder NULL ../rtl/decoder/decoder.v vlg02/decoder.bin 1442586853
+MO alu NULL ../rtl/alu/alu.v vlg0A/alu.bin 1442586853

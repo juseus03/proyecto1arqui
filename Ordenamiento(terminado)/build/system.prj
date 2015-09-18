@@ -1,0 +1,7 @@
+verilog work ../system.v
+verilog work ../rtl/alu/alu.v
+verilog work ../rtl/dataregister/dataregister.v
+verilog work ../rtl/decoder/decoder.v
+verilog work ../rtl/fixedregister/fixedregister.v
+verilog work ../rtl/multiplexor/multiplexor.v
+verilog work ../rtl/statemachine/statemachine.v

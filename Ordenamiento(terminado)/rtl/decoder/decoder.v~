@@ -1,0 +1,52 @@
+//---------------------------------------------------------------------------
+// SharkBoad ExampleModule
+// Fredy Segura Q.
+// Josnelihurt Rodriguez Barajas
+// fsegura@uniandes.edu.co
+// j.rodriguez52@uniandes.edu.co
+// Top Level Design for the Xilinx Spartan 3-100E Device
+//---------------------------------------------------------------------------
+
+/*#
+# SharkBoad
+# Copyright (C) 2012 Bogotá, Colombia
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#*/
+
+module decoder #(
+	parameter SELECTION = 4,		//NUMBER OF SELECTION BITS
+	parameter DATAWIDTH = 11
+	)
+	(
+	input			[SELECTION-1:0] 	sSelDeco,
+	output reg		[DATAWIDTH-1:0] 	sOutDeco
+	);
+	always@(*)
+	begin
+	case (sSelDeco)	
+		4'b0000: sOutDeco = 11'b11111111110;//R0
+		4'b0001: sOutDeco = 11'b11111111101;//R1
+		4'b0010: sOutDeco = 11'b11111111011;//R2
+		4'b0011: sOutDeco = 11'b11111110111;//R3
+		4'b0100: sOutDeco = 11'b11111101111;//R4
+		4'b0101: sOutDeco = 11'b11111011111;//RP0
+		4'b0110: sOutDeco = 11'b11110111111;//RP1
+		4'b0111: sOutDeco = 11'b11101111111; //RP2
+		4'b0111: sOutDeco = 11'b11011111111; //RP3
+		4'b0111: sOutDeco = 11'b10111111111; //RP4
+		4'b1000: sOutDeco = 11'b11111111111; //No Hay Registro
+		default :   sOutDeco = 11'b11111111110; //
+		endcase
+	end
+endmodule
